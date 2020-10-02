@@ -1,3 +1,5 @@
+import {UnityEngine} from "csharp";
+
 const Reconciler = require('react-reconciler')
 const React = require('React')
 import * as csharp from 'csharp'
@@ -216,7 +218,7 @@ const hostConfig = {
         return new UnityWidget(type, props);
     },
     createTextInstance(text) {
-        return new UnityWidget("TextBlock", {Text: text});
+        return new UnityWidget("UnityEngine.UI.Text", {text:text,font: UnityEngine.Font.CreateDynamicFontFromOSFont("Arial", 12)});
     },
     finalizeInitialChildren() {
         return false

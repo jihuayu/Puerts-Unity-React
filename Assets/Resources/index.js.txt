@@ -21921,6 +21921,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var csharp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(csharp__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var puerts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! puerts */ "puerts");
 /* harmony import */ var puerts__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(puerts__WEBPACK_IMPORTED_MODULE_1__);
+
+
 const Reconciler = __webpack_require__(/*! react-reconciler */ "./node_modules/react-reconciler/index.js")
 const React = __webpack_require__(/*! React */ "./node_modules/React/index.js")
 
@@ -22139,7 +22141,7 @@ const hostConfig = {
         return new UnityWidget(type, props);
     },
     createTextInstance(text) {
-        return new UnityWidget("TextBlock", {Text: text});
+        return new UnityWidget("UnityEngine.UI.Text", {text:text,font: csharp__WEBPACK_IMPORTED_MODULE_0__["UnityEngine"].Font.CreateDynamicFontFromOSFont("Arial", 12)});
     },
     finalizeInitialChildren() {
         return false
