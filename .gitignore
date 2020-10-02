@@ -1,0 +1,7 @@
+*.meta
+Temp/
+.idea/
+Library/
+Logs/
+Packages/
+UserSettings/
