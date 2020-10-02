@@ -271,7 +271,10 @@ const hostConfig = {
     removeChild(parent, child) {
         parent.removeChild(child);
     },
-
+    insertBefore(parentInstance, child, beforeChild){
+        parentInstance.appendChild(child);
+        child.nativePtr.transform.SetSiblingIndex(beforeChild.nativePtr.transform.GetSiblingIndex())
+    },
     //useSyncScheduling: true,
     supportsMutation: true,
     isPrimaryRenderer: true,

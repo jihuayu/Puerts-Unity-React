@@ -21896,12 +21896,29 @@ class Template extends React.Component {
     render() {
         return (React.createElement(comp_1.GridLayout, { cellSize: new csharp.UnityEngine.Vector2(50, 50) },
             React.createElement(comp_1.Text, { text: this.state.list.toString() }),
-            React.createElement(comp_1.TextButton, { text: "+1", onClick: () => { this.setState((s, p) => { return { list: s.list + 1 }; }); } }),
-            React.createElement(comp_1.TextButton, { text: "+5", onClick: () => { this.setState((s, p) => { return { list: s.list + 5 }; }); } }),
-            React.createElement(comp_1.TextButton, { text: "-2", onClick: () => { this.setState((s, p) => { return { list: s.list - 2 }; }); } })));
+            this.state.list > 0 && Array.from(Array(this.state.list), (i => {
+                console.log(1);
+                return React.createElement(comp_1.Text, { text: "111" });
+            })),
+            React.createElement(comp_1.TextButton, { text: "+1", onClick: () => {
+                    this.setState((s, p) => {
+                        return { list: s.list + 1 };
+                    });
+                } }),
+            React.createElement(comp_1.TextButton, { text: "+5", onClick: () => {
+                    this.setState((s, p) => {
+                        return { list: s.list + 5 };
+                    });
+                } }),
+            React.createElement(comp_1.TextButton, { text: "-2", onClick: () => {
+                    this.setState((s, p) => {
+                        return { list: s.list - 2 };
+                    });
+                } })));
     }
 }
-jsx.reconciler.updateContainer(React.createElement(Template, null), jsx.container, null, () => { });
+jsx.reconciler.updateContainer(React.createElement(Template, null), jsx.container, null, () => {
+});
 
 
 /***/ }),
@@ -22194,7 +22211,10 @@ const hostConfig = {
     removeChild(parent, child) {
         parent.removeChild(child);
     },
-
+    insertBefore(parentInstance, child, beforeChild){
+        parentInstance.appendChild(child);
+        child.nativePtr.transform.SetSiblingIndex(beforeChild.nativePtr.transform.GetSiblingIndex())
+    },
     //useSyncScheduling: true,
     supportsMutation: true,
     isPrimaryRenderer: true,
